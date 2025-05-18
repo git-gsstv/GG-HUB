@@ -1,19 +1,21 @@
 <?php
 include_once'conexao.php';
 
-if (isset($_REQUEST["act"]) && $_REQUEST["act"] == "save" && $nome != "") {
+$usuario = trim($_POST['usuario']);
+$email = trim($_POST['email']);
+$senha = trim($_POST['senha']);
+
+if (isset($_REQUEST["act"]) && $_REQUEST["act"] == "save" && !empty($_POST['usuario'])) {
+    
     try {
-        $stmt = $conexao->prepare("INSERT INTO contatos (usuario, email, senha) VALUES (:usuario,:email ,:senha )");
-        $stmt->bindParam(1, $nome);
-        $stmt->bindParam(2, $email);
-        $stmt->bindParam(3, $celular);
+        $stmt = $conexao->prepare("INSERT INTO administrador (usuario, email, senha) VALUES (:usuario ,:email ,:senha )");
+        $stmt->bindValue(':usuario', $usuario);
+        $stmt->bindValue(':email', $email);
+        $stmt->bindValue(':senha', $senha);
         if ($stmt->execute()) {
             if ($stmt->rowCount() > 0) {
                 echo "Dados cadastrados com sucesso!";
-                $id = null;
-                $nome = null;
-                $email = null;
-                $celular = null;
+                $usuario = $email = $senha = null;
             } else {
                 echo "Erro ao tentar efetivar cadastro";
             }
