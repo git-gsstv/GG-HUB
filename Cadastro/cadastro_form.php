@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GG HUB</title>
-    <link rel="stylesheet" href="../Estilização/styleGGHUB.css">
+    <link rel="stylesheet" href="../Estilização/CadastroStyle.css">
 </head>
 <body>
     <div class="container">

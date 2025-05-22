@@ -6,12 +6,14 @@ $email = trim($_POST['email']);
 $senha = trim($_POST['senha']);
 
 if (isset($_REQUEST["act"]) && $_REQUEST["act"] == "save" && !empty($_POST['usuario'])) {
-    
+
+    $senhaCriptografada = password_hash($senha, PASSWORD_DEFAULT);
+
     try {
         $stmt = $conexao->prepare("INSERT INTO administrador (usuario, email, senha) VALUES (:usuario ,:email ,:senha )");
         $stmt->bindValue(':usuario', $usuario);
         $stmt->bindValue(':email', $email);
-        $stmt->bindValue(':senha', $senha);
+        $stmt->bindValue(':senha', $senhaCriptografada);
         if ($stmt->execute()) {
             if ($stmt->rowCount() > 0) {
                 echo "Dados cadastrados com sucesso!";
