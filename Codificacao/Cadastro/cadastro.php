@@ -1,5 +1,5 @@
 <?php
-include_once'conexao.php';
+include_once'../Conexao/conexao.php';
 
 $usuario = trim($_POST['usuario']);
 $email = trim($_POST['email']);
