@@ -19,14 +19,16 @@
                 
                 <div class="inputFormulario">
                     <img src="../Estilizacao/Assets/emailIcon.png" alt="Icon do Email" class="inputIcon">
-                    <input type="email" name="email" placeholder="email" class="inputArea" required>
+                    <input type="email" name="email" class="inputArea" id="email" autocomplete="off" placeholder=" " required>
+                    <label for="email" class="labelForm">Email</label>
                 </div>
                 <div class="inputFormulario">
                     <img src="../Estilizacao/Assets/senhaIcon.png" alt="Icon da Senha" class="inputIcon">
-                    <input type="password" name="senha" placeholder="senha" class="inputArea" required>
+                    <input type="password" name="senha" class="inputArea" id="senha" autocomplete="off" placeholder=" " required>
+                    <label for="senha" class="labelForm">Senha</label>
                 </div>
                 <input type="submit" value="ENTRAR" id="loginBotao">
-                <p id="cadastroBotao">criar conta</p>
+                <p id="cadastroBotao"><a href="../Cadastro/cadastro_form.php" id="linkCadastro">criar conta</a></p>
             </form>
         </div>
     </div>

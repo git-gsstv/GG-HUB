@@ -17,21 +17,24 @@
 
                 <input type="hidden" name="act" value="save">
                 <input type="hidden" name="id_adm" id="id_adm">
-                
+
                 <div class="inputFormulario">
                     <img src="../Estilizacao/Assets/userIcon.png" alt="Icon do Usuário" class="inputIcon">
-                    <input type="text" name="usuario" placeholder="nome de usuário" class="inputArea" required>
+                    <input type="text" name="usuario" id="usuario" placeholder=" " class="inputArea" autocomplete="off" required>
+                    <label for="usuario" class="labelForm">Usuário</label>
                 </div>
                 <div class="inputFormulario">
                     <img src="../Estilizacao/Assets/emailIcon.png" alt="Icon do Email" class="inputIcon">
-                    <input type="email" name="email" placeholder="email" class="inputArea" required>
+                    <input type="email" name="email" id="email" placeholder=" " class="inputArea" autocomplete="off" required>
+                    <label for="email" class="labelForm">Email</label>
                 </div>
                 <div class="inputFormulario">
                     <img src="../Estilizacao/Assets/senhaIcon.png" alt="Icon da Senha" class="inputIcon">
-                    <input type="password" name="senha" placeholder="senha" class="inputArea" required>
+                    <input type="password" name="senha" id="senha" placeholder=" " class="inputArea"autocomplete="off" required>
+                    <label for="senha" class="labelForm">Senha</label>
                 </div>
                 <input type="submit" value="CADASTRAR" id="cadBotao">
-                <p id="loginBotao">fazer login</p>
+                <p id="loginBotao"><a href="../Login/login_form.php" id="linkLogin">fazer login</a></p>
             </form>
         </div>
     </div>

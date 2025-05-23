@@ -58,7 +58,10 @@ body {
     margin-bottom: 20px;
     position: relative;
     width: 100%;
-    margin-bottom: 20px;
+}
+
+.inputFormulario:nth-of-type(2) {
+    margin-top: 30px;
 }
 
 .inputArea {
@@ -71,6 +74,38 @@ body {
     font-size: 1em;
     outline: none;
     padding-left: 40px;
+}
+
+.labelForm {
+    position: absolute;
+    left: 45px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.2s ease;
+    color: #483966;
+    pointer-events: none;
+    background-color: transparent; 
+    padding: 0 4px;
+    z-index: 1;
+    transition: top 200ms ease-in, left 200ms ease-in, font-size 200ms ease-in;
+}
+
+.inputArea:focus ~ .labelForm,
+.inputArea:not(:placeholder-shown) ~ .labelForm {
+    top: -0.5rem;
+    left: 40px;
+    font-size: 0.8rem;
+    background-color: transparent;
+    padding: 0 4px;
+    z-index: 2;
+}
+
+.inputArea:focus ~ .labelForm,
+.inputArea:not(:placeholder-shown).inputArea:not(:focus) ~ .labelForm {
+    top: -0.8rem;
+    left: 0.8rem;
+    font-size: 1rem;
+    color: #483966;
 }
 
 .inputIcon {
@@ -114,4 +149,22 @@ input::placeholder {
     font-size: 0.9em;
     color: #616161;
     cursor: pointer;
+}
+
+a#linkLogin {
+    all: unset;
+    text-align: center;
+    font-size: 0.9em;
+    color: #616161;
+    cursor: pointer;
+    display: inline-block;
+}
+
+
+a#linkLogin,
+a#linkLogin:visited,
+a#linkLogin:hover,
+a#linkLogin:active {
+    text-decoration: none !important;
+    color: #616161 !important;
 }
