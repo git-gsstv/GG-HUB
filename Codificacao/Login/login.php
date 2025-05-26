@@ -27,7 +27,7 @@ if(isset($_POST['email']) || isset($_POST['email'])) {
             $_SESSION['usuario'] = $administrador['usuario'];
 
             header("Location: ../CentroADM/telaPrincipal.php");
-
+            exit
         } else {
             echo "Falha ao logar! Email ou senha incorretos.";
         }
