@@ -1,6 +1,5 @@
 <?php
-
-include'../Login/protecao.php';
+require('Login/protecao.php');
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +13,7 @@ include'../Login/protecao.php';
     Bem vindo a tela inicial, <?php echo $_SESSION['usuario']; ?>.
 
     <p>
-        <a href="../Logout/logout.php">Sair</a>
+        <a href="Logout/logout.php">Sair</a>
     </p>
 </body>
 </html>

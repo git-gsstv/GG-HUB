@@ -1,5 +1,5 @@
 <?php
-include_once '../Conexao/conexao.php';
+include_once ('../Conexao/conexao.php');
 
 $mensagemErro = '';
 
@@ -27,7 +27,7 @@ if (isset($_POST['email']) || isset($_POST['senha'])) {
             $_SESSION['id_adm'] = $administrador['id_adm'];
             $_SESSION['usuario'] = $administrador['usuario'];
 
-            header("Location: ../CentroADM/telaPrincipal.php");
+            header("Location: ../index.php");
             exit;
         } else {
             $mensagemErro = "Falha ao logar! Email ou senha incorretos.";

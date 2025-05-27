@@ -4,6 +4,6 @@ if(!isset($_SESSION)) {
 }
 
 if (!isset($_SESSION['id_adm'])) {
-    die("Você não pode acessar essa página, pois não está logado.<p><a href=\"../Login/login_form.php\">Entrar</a></p>");
+    header("Location: Login/login_form.php");
 }
 ?>
