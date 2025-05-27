@@ -141,7 +141,7 @@ input::placeholder {
 
 #loginBotao:hover {
     background-color: #1d152e;
-    color: rgb(99, 69, 109);
+    color: #6F55A2;
 }
 
 #cadastroBotao {
@@ -159,4 +159,18 @@ input::placeholder {
 #linkCadastro:active {
     text-decoration: none;
     color: #616161;
+}
+
+#mensagemErro {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: rgb(111, 85, 162, 0.2);
+    color: #7961a8;
+    border: 1px solid #6F55A2;
+    border-radius: 8px;
+    font-weight: bold;
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
 }

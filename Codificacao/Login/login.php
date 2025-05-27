@@ -1,11 +1,13 @@
 <?php
-include_once'../Conexao/conexao.php';
+include_once '../Conexao/conexao.php';
 
-if(isset($_POST['email']) || isset($_POST['email'])) {
-    if(empty($_POST['email'])) {
-        echo "Preencha o email";
+$mensagemErro = '';
+
+if (isset($_POST['email']) || isset($_POST['senha'])) {
+    if (empty($_POST['email'])) {
+        $mensagemErro = "Preencha o email";
     } else if (empty($_POST['senha'])) {
-        echo "Preencha a senha";
+        $mensagemErro = "Preencha a senha";
     } else {
         $email = $_POST['email'];
         $senha = $_POST['senha'];
@@ -16,10 +18,9 @@ if(isset($_POST['email']) || isset($_POST['email'])) {
         $quantidade = $sql_query->rowCount();
 
         if ($quantidade == 1) {
-
             $administrador = $sql_query->fetch(PDO::FETCH_ASSOC);
 
-            if(!isset($_SESSION)) {
+            if (!isset($_SESSION)) {
                 session_start();
             }
 
@@ -27,9 +28,9 @@ if(isset($_POST['email']) || isset($_POST['email'])) {
             $_SESSION['usuario'] = $administrador['usuario'];
 
             header("Location: ../CentroADM/telaPrincipal.php");
-            exit
+            exit;
         } else {
-            echo "Falha ao logar! Email ou senha incorretos.";
+            $mensagemErro = "Falha ao logar! Email ou senha incorretos.";
         }
     }
 }

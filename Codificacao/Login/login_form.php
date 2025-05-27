@@ -1,3 +1,7 @@
+<?php
+include_once('login.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +17,7 @@
             <h2>FAÇA SEU<br>LOGIN</h2>
         </div>
         <div class="painelDireito">
-            <form action="login.php" method="post">
+            <form method="post">
 
                 <input type="hidden" name="act" value="save">
                 
@@ -30,6 +34,12 @@
                 <input type="submit" value="ENTRAR" id="loginBotao">
                 <p id="cadastroBotao"><a href="../Cadastro/cadastro_form.php" id="linkCadastro">criar conta</a></p>
             </form>
+
+            <?php if (!empty($mensagemErro)): ?>
+                <div id="mensagemErro">
+                    <?php echo $mensagemErro; ?>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
 </body>
