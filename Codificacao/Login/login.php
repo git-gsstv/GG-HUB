@@ -13,7 +13,11 @@ if (isset($_POST['email']) || isset($_POST['senha'])) {
         $senha = $_POST['senha'];
 
         $sql_code = "SELECT * FROM administrador WHERE email = '$email' AND senha = '$senha'";
-        $sql_query = $conexao->query($sql_code) or die("Falha na execução do código SQL: " . $conexao->error);
+        try {
+            $sql_query = $conexao->query($sql_code);
+        } catch (PDOException $e) {
+            die("Falha na execução do código SQL: " . $e->getMessage());
+        }
 
         $quantidade = $sql_query->rowCount();
 

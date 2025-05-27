@@ -118,10 +118,6 @@ body {
   opacity: 0.6;
 }
 
-input::placeholder {
-    color: #483966;
-}
-
 #loginBotao {
     display: block;
     margin: 0 auto;
