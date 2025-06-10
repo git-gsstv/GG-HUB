@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #100F0F;
+}
+
+#headerDashboard {
+    display: flex;
+    background: linear-gradient(#3D3156, #50416F);
+}
+
+#Logo {
+    width: 90px;
+    height: 90.52px;
+}
+
+#Local {
+    width: 50px;
+}
