@@ -16,6 +16,9 @@ require('Login/protecao.php');
         <div class="logo">
             <img src="Estilizacao/Assets/GGHUBlogo.png" alt="GG HUB Logo" width="60">
         </div>
+        <div>
+            <img src="Estilizacao/Assets/BurguerMenu.png" alt="">
+        </div>
         <ul class="menu">
             <li><img src="Estilizacao/Assets/Home.png" alt="" class="SideImage"> HOME</li>
             <li><img src="Estilizacao/Assets/User.png" alt="" class="SideImage"> USUÁRIOS</li>
@@ -40,13 +43,13 @@ require('Login/protecao.php');
             <p>Tempo de uso</p>
         </div>
         <div class="card">
-            <h2>DOWNLOADS</h2>
-            <img src="Estilizacao/Assets/GraficoSeta.png" alt="Gráfico" width="100%">
-        </div>
-        <div class="card">
             <h2>VENDAS</h2>
             <p>no último mês<br><span class="sales">R$3.259,90</span></p>
             <p>no último ano<br><span class="sales">R$26.759,90</span></p>
+        </div>
+        <div class="card">
+            <h2>DOWNLOADS</h2>
+            <img src="Estilizacao/Assets/GraficoSeta.png" alt="Gráfico" width="100%">
         </div>
         <div class="card">
             <h2>AMIGOS ONLINE</h2>
