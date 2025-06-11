@@ -17,9 +17,9 @@ require('Login/protecao.php');
             <img src="Estilizacao/Assets/GGHUBlogo.png" alt="GG HUB Logo" width="60">
         </div>
         <ul class="menu">
-            <li>🏠 HOME</li>
-            <li>👥 USUÁRIOS</li>
-            <li>🎮 EXPERIÊNCIA</li>
+            <li><img src="Estilizacao/Assets/Home.png" alt="" class="SideImage"> HOME</li>
+            <li><img src="Estilizacao/Assets/User.png" alt="" class="SideImage"> USUÁRIOS</li>
+            <li><img src="Estilizacao/Assets/Controller.png" alt="" class="SideImage"> EXPERIÊNCIA</li>
         </ul>
     </aside>
 
@@ -54,6 +54,7 @@ require('Login/protecao.php');
             <p>👤 username <span class="online">•</span></p>
             <p>👤 username <span class="online">•</span></p>
         </div>
+        <a href="Logout/logout.php">Sair</a>
     </main>
 </body>
 </html>
