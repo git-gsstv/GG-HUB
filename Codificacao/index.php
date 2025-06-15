@@ -16,7 +16,7 @@ require('Login/protecao.php');
         <ul class="menu">
             <li class="menu-item">
                 <img src="Estilizacao/Assets/Home.png" alt="Home" class="SideImage">
-                <a href="#">HOME</a>
+                <a href="index.php">HOME</a>
             </li>
             <li class="menu-item">
                 <img src="Estilizacao/Assets/User.png" alt="User" class="SideImage">
@@ -28,7 +28,7 @@ require('Login/protecao.php');
                 <ul class="submenu">
                     <li>
                         <img src="Estilizacao/Assets/Plus.png" alt="Plus" class="SideImage">
-                        <a href="cadastrar-jogo.php">CADASTRAR JOGO</a>
+                        <a href="Experiencias/DashboardJogo.php">CADASTRAR JOGO</a>
                     </li>
                     <li>
                         <img src="Estilizacao/Assets/Plus.png" alt="Plus" class="SideImage">
