@@ -1,88 +1,140 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
-}
-
 body {
     background-color: #1a1a1a;
     color: white;
     display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
 }
 
 .sidebar {
-    width: 80px;
-    background-color: #5f3a86;
-    min-height: 100vh;
-    padding: 20px 0;
+    background-color: #50416F;
+    height: calc(100vh - 60px);
+    margin-top: 60px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 225px;
+    z-index: 10;
 }
 
-.sidebar .menu li {
-    margin: 25px 0;
-    display: flex;
-    justify-content: center;
-    color: #100F0F;
-}
-
-.sidebar .menu li span {
-    display: none;
-}
-
-.sidebar .menu li:hover span {
-    display: inline;
-    position: absolute;
-    left: 90px;
-    background: #5f3a86;
-    padding: 4px 8px;
-    border-radius: 5px;
-    white-space: nowrap;
-    color: white;
-}
-
-
-.sidebar .logo {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 30px;
-}
 
 .sidebar .menu {
     list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.sidebar .menu li {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+    cursor: pointer;
+    color: #100F0F;
+}
+
+.sidebar .menu li img {
+    width: 24px;
+    height: 24px;
+}
+
+.sidebar .menu li a {
+    color: #100F0F;
+    text-decoration: none;
+}
+
+.menu-item {
+    position: relative;
+    flex-direction: column;
+}
+
+.menu-item > div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.submenu {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    padding-left: 34px;
+    margin-top: 5px;
+}
+
+.menu-item:hover .submenu {
+    display: flex;
+}
+
+.submenu li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.submenu li img {
+    width: 18px;
+    height: 18px;
+}
+
+.submenu li a {
+    color: #100F0F;
+    text-decoration: none;
 }
 
 .sidebar .menu .SideImage {
-    width: 28px;
-    height: 28px;
+    width: 24px;
+    height: 24px;
 }
 
-/* .topbar {
-    background: linear-gradient(to right, #5f3a86, #3a235c);
+.sidebar .menu li a {
+    color: #100F0F;
+    text-decoration: none;
+}
+
+.submenu {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    margin-left: 35px;
+}
+
+.menu-item:hover .submenu {
+    display: flex;
+}
+
+.menu-item {
+    position: relative;
+}
+
+.menu-item a, 
+.submenu a {
+    color: #100F0F;
+    text-decoration: none;
+}
+
+.topbar {
+    background: linear-gradient(to top, #50416F, #3D3156);
     height: 60px;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 20px;
+    padding-left: 100px;
+    box-sizing: border-box;
     position: fixed;
     top: 0;
-    left: 200px;
+    left: 0;
     z-index: 1000;
-} */
-
-.topbar {
-    background: linear-gradient(to top, #5f3a86, #3a235c);
-    height: 60px;
-    width: calc(100% - 80px);
-    left: 80px;
-    display: flex;
-    justify-content: flex-end;
-    padding: 0 20px;
 }
-
 
 .topbar .user-info {
     display: flex;
@@ -90,14 +142,20 @@ body {
     gap: 10px;
 }
 
+.topbar .avatar img {
+    border-radius: 50%;
+}
+
 .dashboard {
-    margin-left: 80px;
     margin-top: 60px;
     padding: 30px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
     background-color: #121212;
+    height: calc(100vh - 60px);
+    overflow-y: auto;
+    margin-left: 250px;
 }
 
 .card {
@@ -106,6 +164,7 @@ body {
     padding: 20px;
     color: white;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    min-height: 150px;
 }
 
 .card h2 {
@@ -131,3 +190,15 @@ body {
 .username {
     color: #8f7dfc;
 }
+
+.dashboard a {
+    color: #8f7dfc;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.dashboard a:hover {
+    text-decoration: underline;
+}
+

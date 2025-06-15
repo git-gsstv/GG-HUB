@@ -13,23 +13,43 @@ require('Login/protecao.php');
 </head>
 <body>
     <aside class="sidebar">
-        <div class="logo">
+        <ul class="menu">
+            <li class="menu-item">
+                <img src="Estilizacao/Assets/Home.png" alt="Home" class="SideImage">
+                <a href="#">HOME</a>
+            </li>
+            <li class="menu-item">
+                <img src="Estilizacao/Assets/User.png" alt="User" class="SideImage">
+                <a href="#">USUÁRIOS</a>
+            </li>
+            <li class="menu-item">
+                <img src="Estilizacao/Assets/Controller.png" alt="Experiências" class="SideImage">
+                <a href="#">EXPERIÊNCIAS</a>
+                <ul class="submenu">
+                    <li>
+                        <img src="Estilizacao/Assets/Plus.png" alt="Plus" class="SideImage">
+                        <a href="cadastrar-jogo.php">CADASTRAR JOGO</a>
+                    </li>
+                    <li>
+                        <img src="Estilizacao/Assets/Plus.png" alt="Plus" class="SideImage">
+                        <a href="cadastrar-categoria.php">CADASTRAR CATEGORIA</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </aside>
+
+
+    <header class="topbar">
+         <div class="logo">
             <img src="Estilizacao/Assets/GGHUBlogo.png" alt="GG HUB Logo" width="60">
         </div>
         <div>
             <img src="Estilizacao/Assets/BurguerMenu.png" alt="">
         </div>
-        <ul class="menu">
-            <li><img src="Estilizacao/Assets/Home.png" alt="" class="SideImage"> HOME</li>
-            <li><img src="Estilizacao/Assets/User.png" alt="" class="SideImage"> USUÁRIOS</li>
-            <li><img src="Estilizacao/Assets/Controller.png" alt="" class="SideImage"> EXPERIÊNCIA</li>
-        </ul>
-    </aside>
-
-    <header class="topbar">
         <div class="user-info">
             <img src="Estilizacao/Assets/BrasilFlag.png" alt="Brasil" height="20">
-            <span class="username">username</span> - Head Administrator
+            <span class="username"><?php echo $_SESSION['usuario']?></span> - Head Administrator
         </div>
             <div class="avatar">
             <img src="Estilizacao/Assets/UserImage.png" alt="User avatar" width="30">
