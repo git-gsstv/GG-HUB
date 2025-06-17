@@ -267,6 +267,7 @@ body {
 .btn.red {
     background-color: #7C3F3F;
     color: white;
+    text-decoration: none;
 }
 
 .custom-dropdown {
@@ -307,4 +308,54 @@ body {
 
 .custom-dropdown.open .dropdown-content {
     display: block;
+}
+
+.alerta {
+    margin-left: 250px;
+}
+
+table {
+    font-size: 0.95rem;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th {
+    background-color: #3d3156;
+    color: #fff;
+}
+
+td button {
+    margin: 0 5px;
+}
+
+.scroll-area {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-top: 10px;
+    border: 1px solid #444;
+    border-radius: 8px;
+}
+
+.scroll-area table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #ccc;
+}
+
+.scroll-area th,
+.scroll-area td {
+    padding: 10px;
+    text-align: center;
+}
+
+.scroll-area tr {
+    border-top: 1px solid #444;
+}
+
+.scroll-area thead th {
+    position: sticky;
+    top: 0;
+    background-color: #3d3156;
+    z-index: 1;
 }
