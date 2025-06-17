@@ -2,6 +2,13 @@
 require('../Login/login.php');
 require('../Login/protecao.php');
 include_once('CadastroJogo.php');
+$mensagem = "";
+
+if (isset($_SESSION['mensagem'])) {
+    $mensagem = $_SESSION['mensagem'];
+    unset($_SESSION['mensagem']);
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -67,6 +74,12 @@ include_once('CadastroJogo.php');
         </div>
     </main>
 
+        <?php if (!empty($mensagem)): ?>
+            <div class="alerta" style="background:#1e1e1e; padding:10px; border-radius:5px; margin-bottom:10px; color:white;">
+                <?php echo $mensagem; ?>
+            </div>
+        <?php endif; ?>
+
     <div id="overlay" class="overlay hidden">
         <div class="modal">
             <img src="../Estilizacao/Assets/GameBanner.jpg" alt="Logo" class="modal-logo">
@@ -75,16 +88,15 @@ include_once('CadastroJogo.php');
                 <input type="hidden" name="id_adm" id="id_adm">
 
                 <label for="nomeJogo">Nome do jogo:</label>
-                <input name="nomeJogo" type="text" placeholder="Ex: God of War">
+                <input name="nomeJogo" type="text" autocomplete="off" placeholder="Ex: God of War">
 
                 <label for="developer">Desenvolvedor(es):</label>
-                <input name="developer" type="text" placeholder="Ex: Santa Monica Studio">
+                <input name="developer" type="text" autocomplete="off" placeholder="Ex: Santa Monica Studio">
 
                 <label for="preco" >Preço:</label>
-                <input name="preco" type="number" placeholder="R$">
+                <input name="preco" type="number" autocomplete="off" placeholder="R$">
 
                 <div class="dropdowns">
-                    <!-- Categorias -->
                     <div class="custom-dropdown">
                         <div class="dropdown-label">Categorias</div>
                         <div class="dropdown-content">
@@ -94,7 +106,6 @@ include_once('CadastroJogo.php');
                         </div>
                     </div>
 
-                    <!-- Plataformas -->
                     <div class="custom-dropdown">
                         <div class="dropdown-label">Plataformas</div>
                         <div class="dropdown-content">
@@ -115,13 +126,48 @@ include_once('CadastroJogo.php');
         </div>
     </div>
 
-    <?php if (!empty($mensagem)): ?>
-        <div class="alerta" style="background:#1e1e1e; padding:10px; border-radius:5px; margin-bottom:10px; color:white;">
-            <?php echo $mensagem; ?>
-        </div>
-    <?php endif; ?>
+    <div id="modalJogos" class="overlay hidden">
+        <div class="modal" style="width: 700px; max-height: 80vh; display: flex; flex-direction: column;">
+            <h2 style="text-align: center; color: #b9b9b9;">JOGOS CADASTRADOS</h2>
 
-    <script>
+            <div class="scroll-area">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome do jogo</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $stmt = $conexao->query("SELECT id, nome FROM jogo ORDER BY id ASC");
+                        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                        ?>
+                            <tr>
+                                <td><?= $row['id'] ?></td>
+                                <td><?= $row['nome'] ?></td>
+                                <td>
+                                    <button class="btn green">EDITAR</button>
+                                    <a href="DeleteJogo.php?id=<?= $row['id'] ?>" class="btn red" onclick="return confirm('Tem certeza que deseja excluir este jogo?');">EXCLUIR</a>
+                                </td>
+                            </tr>
+                        <?php
+                        }
+                        ?>
+                    </tbody>
+                </table>
+            </div>
+
+            <div style="margin-top: 20px; text-align: center;">
+                <button class="btn red" onclick="closeGamesModal()">SAIR</button>
+            </div>
+        </div>
+    </div>
+
+
+
+<script>
     const plusButton = document.querySelector('.card img[alt="Plus Button"]');
     const overlay = document.getElementById('overlay');
 
@@ -132,6 +178,18 @@ include_once('CadastroJogo.php');
     function closeModal() {
         overlay.classList.add('hidden');
     }
+
+    const configButton = document.querySelector('.card img[alt="Configuration Button"]');
+    const modalJogos = document.getElementById('modalJogos');
+
+    configButton.addEventListener('click', () => {
+        modalJogos.classList.remove('hidden');
+    });
+
+    function closeGamesModal() {
+        modalJogos.classList.add('hidden');
+    }
+
 </script>
 
 <script>
@@ -140,16 +198,13 @@ include_once('CadastroJogo.php');
     dropdowns.forEach(drop => {
         const label = drop.querySelector('.dropdown-label');
         label.addEventListener('click', () => {
-            // Fecha outros dropdowns
             dropdowns.forEach(d => {
                 if (d !== drop) d.classList.remove('open');
             });
-            // Alterna o atual
             drop.classList.toggle('open');
         });
     });
 
-    // Fecha se clicar fora
     document.addEventListener('click', (e) => {
         dropdowns.forEach(drop => {
             if (!drop.contains(e.target)) {
@@ -158,6 +213,5 @@ include_once('CadastroJogo.php');
         });
     });
 </script>
-
 </body>
 </html>
