@@ -40,10 +40,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
 
             $conexao->commit();
-            $mensagem = "Jogo cadastrado com sucesso!";
+            $_SESSION['mensagem'] = "Jogo cadastrado com sucesso!";
         } catch (PDOException $e) {
             $conexao->rollBack();
-            $mensagem = "Erro no cadastro de jogo: " . $e->getMessage();
+            $_SESSION['mensagem'] = "Erro no cadastro de jogo: " . $e->getMessage();
         }
     }
 }
