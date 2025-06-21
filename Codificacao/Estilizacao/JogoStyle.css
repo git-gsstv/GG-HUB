@@ -22,6 +22,10 @@ body {
     z-index: 10;
 }
 
+.username {
+    color: #100F0F;
+    font-size: large;
+}
 
 .sidebar .menu {
     list-style: none;
@@ -322,6 +326,7 @@ body {
 .btn.green {
     background-color: #417C3F;
     color: white;
+    text-decoration: none;
 }
 
 .btn.red {
@@ -338,6 +343,11 @@ body {
 
 .alerta {
     margin-left: 250px;
+    background:#1e1e1e;
+    padding:10px;
+    border-radius:5px;
+    margin-bottom:10px;
+    color:white;
 }
 
 .modal-read {

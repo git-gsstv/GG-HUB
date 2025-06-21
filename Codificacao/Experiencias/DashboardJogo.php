@@ -2,13 +2,20 @@
 require('../Login/login.php');
 require('../Login/protecao.php');
 include_once('CadastroJogo.php');
+
+$editarDados = null;
+
+if (isset($_GET['editar'])) {
+    $idEditar = intval($_GET['editar']);
+    include('EditJogo.php');
+}
+
 $mensagem = "";
 
 if (isset($_SESSION['mensagem'])) {
     $mensagem = $_SESSION['mensagem'];
     unset($_SESSION['mensagem']);
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,7 +47,7 @@ if (isset($_SESSION['mensagem'])) {
                     </li>
                     <li>
                         <img src="../Estilizacao/Assets/Plus.png" alt="Plus" class="SideImage">
-                        <a href="cadastrar-categoria.php">CADASTRAR CATEGORIA</a>
+                        <a href="DashboardCategoria.php">CADASTRAR CATEGORIA</a>
                     </li>
                 </ul>
             </li>
@@ -56,7 +63,7 @@ if (isset($_SESSION['mensagem'])) {
         </div>
         <div class="user-info">
             <img src="../Estilizacao/Assets/BrasilFlag.png" alt="Brasil" height="20">
-            <span class="username"><?php echo $_SESSION['usuario']?></span> - Head Administrator
+            <span class="username"><?php echo $_SESSION['usuario']?> - Head Administrator</span>
         </div>
             <div class="avatar">
             <img src="../Estilizacao/Assets/UserImage.png" alt="User avatar" width="30">
@@ -75,7 +82,7 @@ if (isset($_SESSION['mensagem'])) {
     </main>
 
         <?php if (!empty($mensagem)): ?>
-            <div class="alerta" style="background:#1e1e1e; padding:10px; border-radius:5px; margin-bottom:10px; color:white;">
+            <div class="alerta">
                 <?php echo $mensagem; ?>
             </div>
         <?php endif; ?>
@@ -126,6 +133,32 @@ if (isset($_SESSION['mensagem'])) {
         </div>
     </div>
 
+    <?php if (isset($editarDados)): ?>
+    <div id="editModal" class="overlay">
+        <div class="modal">
+            <img src="../Estilizacao/Assets/GameBanner.jpg" alt="Logo" class="modal-logo">
+            <form method="post" action="EditJogo.php">
+                <input type="hidden" name="id_jogo" value="<?= $editarDados['id'] ?>">
+
+                <label for="nomeJogo">Nome do jogo:</label>
+                <input name="nomeJogo" type="text" value="<?= htmlspecialchars($editarDados['nome']) ?>" required>
+
+                <label for="developer">Desenvolvedor(es):</label>
+                <input name="developer" type="text" value="<?= htmlspecialchars($editarDados['desenvolvedor']) ?>" required>
+
+                <label for="preco">Preço:</label>
+                <input name="preco" type="number" step="0.01" value="<?= $editarDados['preco'] ?>" required>
+
+                <div class="modal-buttons">
+                    <input type="submit" value="SALVAR" class="btn green">
+                    <a href="DashboardJogo.php" class="btn red">CANCELAR</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <?php endif; ?>
+
+
     <div id="modalJogos" class="overlay hidden">
         <div class="modal modal-read" style="width: 700px; max-height: 80vh; display: flex; flex-direction: column;">
             <h2 style="text-align: center; color: #b9b9b9;">JOGOS CADASTRADOS</h2>
@@ -148,7 +181,7 @@ if (isset($_SESSION['mensagem'])) {
                                 <td><?= $row['id'] ?></td>
                                 <td><?= $row['nome'] ?></td>
                                 <td>
-                                    <button class="btn green">EDITAR</button>
+                                    <a href="?editar=<?= $row['id'] ?>" class="btn green">EDITAR</a>
                                     <a href="DeleteJogo.php?id=<?= $row['id'] ?>" class="btn red" onclick="return confirm('Tem certeza que deseja excluir este jogo?');">EXCLUIR</a>
                                 </td>
                             </tr>
@@ -164,7 +197,6 @@ if (isset($_SESSION['mensagem'])) {
             </div>
         </div>
     </div>
-
 
 
 <script>
@@ -212,6 +244,8 @@ if (isset($_SESSION['mensagem'])) {
             }
         });
     });
+
+    
 </script>
 </body>
 </html>
