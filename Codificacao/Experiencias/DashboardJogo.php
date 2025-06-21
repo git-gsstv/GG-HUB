@@ -127,7 +127,7 @@ if (isset($_SESSION['mensagem'])) {
     </div>
 
     <div id="modalJogos" class="overlay hidden">
-        <div class="modal" style="width: 700px; max-height: 80vh; display: flex; flex-direction: column;">
+        <div class="modal modal-read" style="width: 700px; max-height: 80vh; display: flex; flex-direction: column;">
             <h2 style="text-align: center; color: #b9b9b9;">JOGOS CADASTRADOS</h2>
 
             <div class="scroll-area">

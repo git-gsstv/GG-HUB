@@ -211,25 +211,34 @@ body {
 
 .modal {
     background-color: #2E2B34;
-    padding: 30px 20px;
+    padding: 20px;
     border-radius: 12px;
-    width: 500px;
+    width: 350px;
     color: #B9B9B9;
     display: flex;
     flex-direction: column;
     gap: 10px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+    align-items: center;
 }
 
 .modal-logo {
-    width: 490px;
-    height: 80px;
-    margin: 0 auto 10px auto;
-    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.modal label {
+    align-self: flex-start;
+    font-size: 0.9rem;
+    margin-bottom: -5px;
+    margin-top: 10px;
 }
 
 .modal input, .modal select {
-    padding: 8px;
+    width: 90%;
+    padding: 10px;
     border: none;
     border-radius: 5px;
     background-color: #1e1e1e;
@@ -241,33 +250,14 @@ body {
     display: flex;
     justify-content: space-between;
     gap: 10px;
-    padding-bottom: 50px;
-    padding-top: 20px;
-}
-
-.modal-buttons {
-    display: flex;
-    justify-content: space-between;
+    width: 100%;
+    padding: 10px 0;
+    position: relative;
+    border-top: 1px solid #444;
+    border-bottom: 1px solid #444;
     margin-top: 10px;
-}
-
-.btn {
-    padding: 8px 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.btn.green {
-    background-color: #417C3F;
-    color: white;
-}
-
-.btn.red {
-    background-color: #7C3F3F;
-    color: white;
-    text-decoration: none;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 .custom-dropdown {
@@ -278,11 +268,11 @@ body {
 .dropdown-label {
     background-color: #1e1e1e;
     color: white;
-    padding: 8px;
+    padding: 10px;
     border-radius: 5px;
     cursor: pointer;
     user-select: none;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     text-align: center;
 }
 
@@ -297,6 +287,7 @@ body {
     width: 100%;
     max-height: 150px;
     overflow-y: auto;
+    top: 45px;
 }
 
 .dropdown-content label {
@@ -310,52 +301,133 @@ body {
     display: block;
 }
 
+.modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 10px;
+    gap: 10px;
+}
+
+.btn {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.btn.green {
+    background-color: #417C3F;
+    color: white;
+}
+
+.btn.red {
+    background-color: #7C3F3F;
+    color: white;
+    text-decoration: none;
+}
+
+@media (max-width: 400px) {
+    .modal {
+        width: 90%;
+    }
+}
+
 .alerta {
     margin-left: 250px;
 }
 
-table {
-    font-size: 0.95rem;
-    border-radius: 8px;
-    overflow: hidden;
+.modal-read {
+    width: 100%;
+    max-width: 650px;
+    height: 700px;
+    padding: 30px 20px;
+    border-radius: 12px;
+    background-color: #2E2B34;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-th {
-    background-color: #3d3156;
-    color: #fff;
+.modal-read h2 {
+    text-align: center;
+    color: #b9b9b9;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
 }
 
-td button {
-    margin: 0 5px;
-}
-
-.scroll-area {
-    max-height: 400px;
-    overflow-y: auto;
-    margin-top: 10px;
+.modal-read .scroll-area {
+    width: 100%;
     border: 1px solid #444;
-    border-radius: 8px;
+    border-radius: 6px;
+    max-height: 500px;
+    overflow-y: auto;
+    background-color: #1e1e1e;
 }
 
-.scroll-area table {
+.modal-read table {
     width: 100%;
     border-collapse: collapse;
-    color: #ccc;
+    color: #fff;
+    font-size: 0.95rem;
 }
 
-.scroll-area th,
-.scroll-area td {
-    padding: 10px;
-    text-align: center;
-}
-
-.scroll-area tr {
-    border-top: 1px solid #444;
-}
-
-.scroll-area thead th {
-    position: sticky;
-    top: 0;
+.modal-read thead {
     background-color: #3d3156;
-    z-index: 1;
+    color: white;
+}
+
+.modal-read thead th {
+    padding: 12px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.modal-read tbody td {
+    padding: 12px;
+    border-top: 1px solid #444;
+    text-align: left;
+}
+
+.modal-read td button,
+.modal-read td a.btn {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    margin-right: 5px;
+}
+
+.modal-read .btn.red {
+    background-color: #7C3F3F;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal-read .btn.green {
+    background-color: #417C3F;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal-read .modal-buttons,
+.modal-read > div:last-child {
+    margin-top: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+.modal-read .modal-buttons .btn,
+.modal-read > div:last-child .btn {
+    width: 100px;
+    margin: 0 auto;
 }
