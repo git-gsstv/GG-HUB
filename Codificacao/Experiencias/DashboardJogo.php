@@ -92,7 +92,7 @@ if (isset($_SESSION['mensagem'])) {
             <img src="../Estilizacao/Assets/GameBanner.jpg" alt="Logo" class="modal-logo">
             <form method="post">
 
-                <input type="hidden" name="id_adm" id="id_adm">
+                <input type="hidden" name="id_jogo" id="id_jogo">
 
                 <label for="nomeJogo">Nome do jogo:</label>
                 <input name="nomeJogo" type="text" autocomplete="off" placeholder="Ex: God of War">
@@ -107,9 +107,12 @@ if (isset($_SESSION['mensagem'])) {
                     <div class="custom-dropdown">
                         <div class="dropdown-label">Categorias</div>
                         <div class="dropdown-content">
-                            <label><input type="checkbox" name="categorias[]" value="acao"> Ação</label>
-                            <label><input type="checkbox" name="categorias[]" value="aventura"> Aventura</label>
-                            <label><input type="checkbox" name="categorias[]" value="rpg"> RPG</label>
+                        <?php
+                        $stmtCat = $conexao->query("SELECT id, nome FROM categoria ORDER BY nome ASC");
+                        while ($cat = $stmtCat->fetch(PDO::FETCH_ASSOC)) {
+                            echo '<label><input type="checkbox" name="categorias[]" value="' . $cat['id'] . '"> ' . htmlspecialchars($cat['nome']) . '</label>';
+                        }
+                        ?>
                         </div>
                     </div>
 
@@ -141,13 +144,13 @@ if (isset($_SESSION['mensagem'])) {
                 <input type="hidden" name="id_jogo" value="<?= $editarDados['id'] ?>">
 
                 <label for="nomeJogo">Nome do jogo:</label>
-                <input name="nomeJogo" type="text" value="<?= htmlspecialchars($editarDados['nome']) ?>" required>
+                <input name="nomeJogo" type="text" value="<?= htmlspecialchars($editarDados['nome']) ?>" required autocomplete="off">
 
                 <label for="developer">Desenvolvedor(es):</label>
-                <input name="developer" type="text" value="<?= htmlspecialchars($editarDados['desenvolvedor']) ?>" required>
+                <input name="developer" type="text" value="<?= htmlspecialchars($editarDados['desenvolvedor']) ?>" required autocomplete="off">
 
                 <label for="preco">Preço:</label>
-                <input name="preco" type="number" step="0.01" value="<?= $editarDados['preco'] ?>" required>
+                <input name="preco" type="number" step="0.01" value="<?= $editarDados['preco'] ?>" required autocomplete="off">
 
                 <div class="modal-buttons">
                     <input type="submit" value="SALVAR" class="btn green">
