@@ -122,6 +122,7 @@ if (isset($_SESSION['mensagem'])) {
                             <label><input type="checkbox" name="plataformas[]" value="pc"> PC</label>
                             <label><input type="checkbox" name="plataformas[]" value="ps5"> PlayStation 5</label>
                             <label><input type="checkbox" name="plataformas[]" value="xbox_series_x"> Xbox Series X</label>
+                            <label><input type="checkbox" name="plataformas[]" value="mobile"> Mobile </label>
                         </div>
                     </div>
                 </div>
