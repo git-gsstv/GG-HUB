@@ -32,7 +32,7 @@ require('Login/protecao.php');
                     </li>
                     <li>
                         <img src="Estilizacao/Assets/Plus.png" alt="Plus" class="SideImage">
-                        <a href="DashboardCategoria.php">CADASTRAR CATEGORIA</a>
+                        <a href="Experiencias/DashboardCategoria.php">CADASTRAR CATEGORIA</a>
                     </li>
                 </ul>
             </li>
