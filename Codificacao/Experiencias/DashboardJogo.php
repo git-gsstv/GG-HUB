@@ -1,7 +1,14 @@
 <?php
 require('../Login/login.php');
-require('../Login/protecao.php');
 include_once('CadastroJogo.php');
+
+if(!isset($_SESSION)) {
+    session_start();
+}
+
+if (!isset($_SESSION['id_adm'])) {
+    header("Location: ../Login/login_form.php");
+}
 
 $editarDados = null;
 
