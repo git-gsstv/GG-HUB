@@ -387,3 +387,27 @@ body {
     width: 100px;
     margin: 0 auto;
 }
+
+.scroll-area::-webkit-scrollbar {
+    width: 10px;
+}
+
+.scroll-area::-webkit-scrollbar-track {
+    background: #2E2B34;
+    border-radius: 10px;
+}
+
+.scroll-area::-webkit-scrollbar-thumb {
+    background-color: #50416F;
+    border-radius: 10px;
+    border: 2px solid #2E2B34;
+}
+
+.scroll-area::-webkit-scrollbar-thumb:hover {
+    background-color: #6A5BA8;
+}
+
+.burgerMenu {
+    width: 40px;
+    margin-right: 600px;
+}

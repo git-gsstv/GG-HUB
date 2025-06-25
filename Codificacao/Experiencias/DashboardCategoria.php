@@ -59,7 +59,7 @@ if (isset($_SESSION['mensagem'])) {
             <img src="../Estilizacao/Assets/GGHUBlogo.png" alt="GG HUB Logo" width="60">
         </div>
         <div>
-            <img src="../Estilizacao/Assets/BurguerMenu.png" alt="">
+            <img src="../Estilizacao/Assets/BurguerMenu.png" alt="" class="burgerMenu">
         </div>
         <div class="user-info">
             <img src="../Estilizacao/Assets/BrasilFlag.png" alt="Brasil" height="20">
